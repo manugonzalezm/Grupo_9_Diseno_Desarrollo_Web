@@ -3,16 +3,20 @@ name: AI Code Review
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   review:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: AI review
-        uses: anc95/ChatGPT-CodeReview@v1
+      - name: AI Review
+        uses: mshick/add-pr-comment@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          message: |
+            ⚠️ IA review no configurada todavía correctamente.
+            (Placeholder funcionando)
