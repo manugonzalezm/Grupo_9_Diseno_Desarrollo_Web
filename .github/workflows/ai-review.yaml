@@ -12,11 +12,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: AI Review
+      - name: Get PR diff
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff origin/${{ github.base_ref }} > diff.txt
+
+      - name: Call OpenAI
+        id: ai
+        run: |
+          RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
+            -s \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -d '{
+              "model": "gpt-4.1-mini",
+              "messages": [
+                {
+                  "role": "system",
+                  "content": "Sos un senior developer. Revisá el código y detectá errores, mejoras, malas prácticas y problemas de seguridad."
+                },
+                {
+                  "role": "user",
+                  "content": "'"$(cat diff.txt | head -c 6000 | sed 's/"/\\"/g')"'"
+                }
+              ]
+            }')
+
+          echo "$RESPONSE" > response.json
+          COMMENT=$(jq -r '.choices[0].message.content' response.json)
+
+          echo "comment<<EOF" >> $GITHUB_OUTPUT
+          echo "$COMMENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Comment PR
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            ⚠️ IA review no configurada todavía correctamente.
-            (Placeholder funcionando)
+            🤖 **AI Code Review**
+
+            ${{ steps.ai.outputs.comment }}
