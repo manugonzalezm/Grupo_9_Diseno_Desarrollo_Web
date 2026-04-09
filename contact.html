@@ -4,28 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Consultora Grupo 9</h1>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./services.html">Services</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
+
+    <header class="site-header">
+        <h1>TripGo</h1>
+
+        <nav class="main-nav">
+            <a href="./index.html">Home</a>
+            <a href="./services.html">Services</a>
+            <a href="./contact.html" class="active">Contact</a>
         </nav>
     </header>
-    <main>
-        <h2>Contacto</h2>
-        <p>
-            Para más información sobre nuestros servicios o para solicitar un presupuesto, podés contactarnos vía mail a [mgonzalez19@uade.edu.ar](mailto:mgonzalez19@uade.edu.ar).
-            <br>
-            Estaremos encantados de responder tus consultas y ayudarte a llevar tu negocio al siguiente nivel digital.
-        </p>
+
+    <main class="site-main">
+        <section class="card">
+
+            <h2>Contacto</h2>
+
+            <p>
+                Para más información sobre nuestros servicios o para solicitar un presupuesto, podés contactarnos vía mail a 
+                <a href="mailto:mgonzalez19@uade.edu.ar" class="email-link">mgonzalez19@uade.edu.ar</a>.
+                <br><br>
+                Estaremos encantados de responder tus consultas y ayudarte a llevar tu negocio al siguiente nivel digital.
+            </p>
+
+            <div class="links">
+                <a href="mailto:mgonzalez19@uade.edu.ar" class="btn">Enviar email</a>
+            </div>
+
+        </section>
     </main>
-    <footer>
+
+    <footer class="site-footer">
         <p>UADE - Diseño y Desarrollo Web</p>
     </footer>
+
 </body>
 </html>
