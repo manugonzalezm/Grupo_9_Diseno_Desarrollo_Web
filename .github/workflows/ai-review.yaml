@@ -2,6 +2,7 @@ name: AI Code Review
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -9,49 +10,74 @@ permissions:
 
 jobs:
   review:
+    name: AI review
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Get PR diff
+      - name: Obtener diff del PR
         run: |
-          git fetch origin ${{ github.base_ref }}
-          git diff origin/${{ github.base_ref }} > diff.txt
+          git fetch origin "${{ github.base_ref }}"
+          git diff "origin/${{ github.base_ref }}"..."${{ github.sha }}" > diff.txt
+          echo "Primeras líneas del diff:"
+          head -n 40 diff.txt || true
 
-      - name: Call OpenAI
+      - name: Armar request para OpenAI
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          DIFF_CONTENT=$(head -c 12000 diff.txt)
+
+          jq -n \
+            --arg model "gpt-4.1-mini" \
+            --arg system "Sos un senior developer especializado en HTML, CSS y JavaScript. Revisá el diff de un pull request y detectá: errores, posibles bugs, malas prácticas, mejoras de legibilidad, mejoras de performance y problemas de seguridad. Respondé en español. Sé concreto. Usá viñetas. Si no encontrás nada importante, decí brevemente que no detectaste problemas relevantes." \
+            --arg user "$DIFF_CONTENT" \
+            '{
+              model: $model,
+              messages: [
+                { role: "system", content: $system },
+                { role: "user", content: $user }
+              ],
+              temperature: 0.2
+            }' > request.json
+
+          echo "Request armada correctamente."
+
+      - name: Llamar a OpenAI
         id: ai
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
             -s \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
-            -d '{
-              "model": "gpt-4.1-mini",
-              "messages": [
-                {
-                  "role": "system",
-                  "content": "Sos un senior developer. Revisá el código y detectá errores, mejoras, malas prácticas y problemas de seguridad."
-                },
-                {
-                  "role": "user",
-                  "content": "'"$(cat diff.txt | head -c 6000 | sed 's/"/\\"/g')"'"
-                }
-              ]
-            }')
+            -d @request.json)
 
           echo "$RESPONSE" > response.json
-          COMMENT=$(jq -r '.choices[0].message.content' response.json)
 
-          echo "comment<<EOF" >> $GITHUB_OUTPUT
-          echo "$COMMENT" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "Primeras líneas de la respuesta:"
+          head -n 40 response.json || true
 
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          COMMENT=$(jq -r '
+            if .error then
+              "Error de OpenAI: " + .error.message
+            elif .choices[0].message.content then
+              .choices[0].message.content
+            else
+              "La respuesta no tuvo contenido utilizable."
+            end
+          ' response.json)
 
-      - name: Comment PR
+          echo "comment<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$COMMENT" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Comentar en el PR
         uses: mshick/add-pr-comment@v2
         with:
           message: |
