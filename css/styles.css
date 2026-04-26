@@ -1,6 +1,6 @@
 :root {
-  --amber-honey: #eca400;
-  --cream: #eaf8bf;
+  --amber-honey: #0055ff;
+  --cream: #ffffff;
   --cerulean: #006992;
   --yale-blue: #27476e;
   --prussian-blue: #001d4a;
@@ -78,7 +78,7 @@ body {
 .card {
   background-color: var(--cream);
   width: 100%;
-  max-width: 800px;
+  max-width: 95%  ;
   padding: 35px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgb(0 29 74 / 25%);

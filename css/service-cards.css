@@ -1,0 +1,66 @@
+:root {
+  --amber-honey: #0055ff;
+  --cream: #ffffff;
+  --cerulean: #006992;
+  --yale-blue: #27476e;
+  --prussian-blue: #001d4a;
+}
+/* Contenedor de las tarjetas de servicio */
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;    
+  padding: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Tarjeta individual (Ficha Blanca) */
+.service-card {
+  background-color: var(--cream);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 29, 74, 0.15);
+  padding: 20px 15px;
+
+  flex: 0 0 calc(33.333% - 10px);
+  min-width: 250px;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Contenedor de imagen cuadrada */
+.service-img-container {
+  width: 90%;
+  aspect-ratio: 1 / 1; 
+  border-radius: 10%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgb(0 29 74 / 20%);
+}
+
+.service-img-container img {
+  /* La imagen debe estirarse para llenar el 100% de su contenedor circular */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto del titulo */
+.service-card .title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Texto de la descripción */
+.service-card .description {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
