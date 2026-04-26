@@ -68,10 +68,8 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-
   margin: 0 auto 20px;
   overflow: hidden;
-
   border: 4px solid var(--white);
   box-shadow: 0 4px 8px rgb(0 29 74 / 20%);
   perspective: 1000px; /* Necesario para el efecto 3D de rotación */
