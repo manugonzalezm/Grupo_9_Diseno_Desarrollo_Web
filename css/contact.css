@@ -1,0 +1,122 @@
+:root {
+  --cian-blue: #05f;
+  --white: #fff;
+  --cerulean: #006992;
+  --yale-blue: #27476e;
+  --prussian-blue: #001d4a;
+}
+
+.contact-card {
+  max-width: 850px;
+  text-align: left;
+}
+
+.contact-form {
+  margin-top: 25px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.contact-form label,
+.form-title {
+  font-weight: bold;
+  color: var(--yale-blue);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--cerulean);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--yale-blue);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--cian-blue);
+  box-shadow: 0 0 6px rgb(0 85 255 / 35%);
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.options-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.options-grid label,
+.options-row label {
+  font-weight: normal;
+  background-color: #f4f8fb;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgb(0 105 146 / 25%);
+}
+
+.contact-form button {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@media (width <= 700px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--cerulean);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--yale-blue);
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--cian-blue);
+  box-shadow: 0 0 6px rgb(0 85 255 / 35%);
+}
+
+.contact-form select option {
+  color: var(--yale-blue);
+  background-color: var(--white);
+}
+
+#otro-texto {
+  margin-top: 12px;
+}

@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/contact.css" />
   </head>
   <body>
     <header class="site-header">
@@ -20,22 +21,120 @@
     </header>
 
     <main class="site-main">
-      <section class="card">
-        <h2>Contacto</h2>
+      <section class="card contact-card">
+        <h2>Formulario de contacto</h2>
 
-        <p>
-          Para más información sobre nuestros servicios o para solicitar un
-          presupuesto, podés contactarnos vía mail a
-          <a href="mailto:mgonzalez19@uade.edu.ar" class="email-link"
-            >mgonzalez19@uade.edu.ar</a
-          >. <br /><br />
-          Estaremos encantados de responder tus consultas y ayudarte a llevar tu
-          negocio al siguiente nivel digital.
-        </p>
+        <form action="#" method="post" class="contact-form">
+          <div class="form-group">
+            <label for="nombre">Nombre y apellido</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Ingresá tu nombre completo"
+              required
+            />
+          </div>
 
-        <div class="links">
-          <a href="mailto:mgonzalez19@uade.edu.ar" class="btn">Enviar email</a>
-        </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ej: +54 9 11 1234-5678"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ej: contacto@empresa.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input
+              type="text"
+              id="empresa"
+              name="empresa"
+              placeholder="Nombre de la empresa"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="motivo">Motivo de contacto</label>
+
+            <select id="motivo" name="motivo" required>
+              <option value="">Seleccioná una opción</option>
+              <option value="consulta_general">Consulta general</option>
+              <option value="solicitud_informacion">
+                Solicitud de información
+              </option>
+              <option value="reclamo">Reclamo</option>
+              <option value="propuesta_comercial">Propuesta comercial</option>
+              <option value="otro">Otro</option>
+            </select>
+
+            <input
+              type="text"
+              id="otro-texto"
+              name="otro-texto"
+              placeholder="Si elegiste 'Otro', especificá acá"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje adicional</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Contanos brevemente cómo podemos ayudarte"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="horario"
+              >Horario de preferencia para ser contactado</label
+            >
+            <input
+              type="text"
+              id="horario"
+              name="horario"
+              placeholder="Ej: Lunes a viernes de 9 a 18 hs"
+            />
+          </div>
+
+          <div class="form-group">
+            <p class="form-title">Medio de contacto preferido</p>
+
+            <div class="options-row">
+              <label
+                ><input type="radio" name="medio_contacto" value="WhatsApp" />
+                WhatsApp</label
+              >
+              <label
+                ><input type="radio" name="medio_contacto" value="Llamada" />
+                Llamada</label
+              >
+              <label
+                ><input type="radio" name="medio_contacto" value="Email" />
+                Email</label
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Enviar consulta</button>
+        </form>
       </section>
     </main>
 
