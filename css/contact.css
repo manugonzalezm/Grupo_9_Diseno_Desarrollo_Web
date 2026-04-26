@@ -1,6 +1,6 @@
 :root {
-  --amber-honey: #0055ff;
-  --cream: #ffffff;
+  --cian-blue: #05f;
+  --white: #fff;
   --cerulean: #006992;
   --yale-blue: #27476e;
   --prussian-blue: #001d4a;
@@ -50,7 +50,7 @@
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: var(--amber-honey);
+  border-color: var(--cian-blue);
   box-shadow: 0 0 6px rgb(0 85 255 / 35%);
 }
 
@@ -102,21 +102,21 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: var(--yale-blue);
-  background-color: var(--cream);
+  background-color: var(--white);
   cursor: pointer;
 }
 
 .contact-form select:focus {
   outline: none;
-  border-color: var(--amber-honey);
+  border-color: var(--cian-blue);
   box-shadow: 0 0 6px rgb(0 85 255 / 35%);
 }
 
 .contact-form select option {
   color: var(--yale-blue);
-  background-color: var(--cream);
+  background-color: var(--white);
 }
 
-#otro_texto {
+#otro-texto {
   margin-top: 12px;
 }

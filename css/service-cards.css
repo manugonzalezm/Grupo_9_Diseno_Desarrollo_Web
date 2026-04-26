@@ -1,10 +1,11 @@
 :root {
-  --amber-honey: #0055ff;
-  --cream: #ffffff;
+  --cian-blue: #05f;
+  --white: #fff;
   --cerulean: #006992;
   --yale-blue: #27476e;
   --prussian-blue: #001d4a;
 }
+
 /* Contenedor de las tarjetas de servicio */
 .service-container {
   display: flex;
@@ -18,15 +19,13 @@
 
 /* Tarjeta individual (Ficha Blanca) */
 .service-card {
-  background-color: var(--cream);
+  background-color: var(--white);
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 29, 74, 0.15);
+  box-shadow: 0 10px 25px rgb(0 29 74 / 15%);
   padding: 20px 15px;
-
   flex: 0 0 calc(33.333% - 10px);
   min-width: 250px;
   max-width: 400px;
-
   display: flex;
   flex-direction: column;
   text-align: center;

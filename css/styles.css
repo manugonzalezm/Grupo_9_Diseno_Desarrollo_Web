@@ -1,6 +1,6 @@
 :root {
-  --amber-honey: #0055ff;
-  --cream: #ffffff;
+  --cian-blue: #05f;
+  --white: #fff;
   --cerulean: #006992;
   --yale-blue: #27476e;
   --prussian-blue: #001d4a;
@@ -18,7 +18,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background: linear-gradient(to bottom, var(--cream), var(--cerulean));
+  background: linear-gradient(to bottom, var(--white), var(--cerulean));
   color: var(--yale-blue);
   min-height: 100vh;
   display: flex;
@@ -28,7 +28,7 @@ body {
 /* Header */
 .site-header {
   background: linear-gradient(135deg, var(--prussian-blue), var(--yale-blue));
-  color: var(--cream);
+  color: var(--white);
   text-align: center;
   padding: 30px 20px;
   box-shadow: 0 3px 10px rgb(0 29 74 / 35%);
@@ -39,7 +39,7 @@ body {
   font-size: 2.4rem;
   letter-spacing: 1px;
   margin-bottom: 15px;
-  color: var(--cream);
+  color: var(--white);
 }
 
 /* Navegación */
@@ -54,7 +54,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--white);
   background-color: var(--yale-blue);
   padding: 10px 16px;
   border-radius: 8px;
@@ -62,7 +62,7 @@ body {
 }
 
 .main-nav a:hover {
-  background-color: var(--amber-honey);
+  background-color: var(--cian-blue);
   color: var(--prussian-blue);
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .card {
-  background-color: var(--cream);
+  background-color: var(--white);
   width: 100%;
   max-width: 95%;
   padding: 35px;
@@ -91,7 +91,7 @@ body {
   font-size: 2rem;
   color: var(--cerulean);
   margin-bottom: 20px;
-  border-bottom: 3px solid var(--amber-honey);
+  border-bottom: 3px solid var(--cian-blue);
   display: inline-block;
   padding-bottom: 6px;
 }
@@ -118,7 +118,7 @@ body {
   display: inline-block;
   text-decoration: none;
   background-color: var(--cerulean);
-  color: var(--cream);
+  color: var(--white);
   font-size: 1rem;
   font-weight: bold;
   padding: 12px 22px;
@@ -129,19 +129,19 @@ body {
 }
 
 .btn:hover {
-  background-color: var(--amber-honey);
+  background-color: var(--cian-blue);
   color: var(--prussian-blue);
   transform: translateY(-2px);
 }
 
 .btn.secondary {
   background-color: var(--yale-blue);
-  color: var(--cream);
+  color: var(--white);
 }
 
 .btn.secondary:hover {
   background-color: var(--prussian-blue);
-  color: var(--cream);
+  color: var(--white);
 }
 
 /* Enlace de mail */
@@ -153,8 +153,8 @@ body {
 }
 
 .email-link:hover {
-  color: var(--amber-honey);
-  border-bottom: 1px solid var(--amber-honey);
+  color: var(--cian-blue);
+  border-bottom: 1px solid var(--cian-blue);
 }
 
 /* Imagen */
@@ -172,7 +172,7 @@ body {
 /* Footer */
 .site-footer {
   background-color: var(--prussian-blue);
-  color: var(--cream);
+  color: var(--white);
   text-align: center;
   padding: 18px 10px;
   font-size: 0.95rem;
@@ -250,7 +250,7 @@ body {
 
 /* Link activo */
 .main-nav a.active {
-  background-color: var(--amber-honey);
+  background-color: var(--cian-blue);
   color: var(--prussian-blue);
   font-weight: bold;
   box-shadow: 0 2px 6px rgb(0 29 74 / 25%);
