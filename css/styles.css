@@ -63,14 +63,14 @@ body {
   transition: all 0.3s ease;
 }
 
-.main-nav a:hover {
-  background-color: var(--cian-blue);
-  color: var(--prussian-blue);
-}
-
 .site-header h1 a {
   color: inherit;
   text-decoration: none;
+}
+
+.main-nav a:hover {
+  background-color: var(--cian-blue);
+  color: var(--prussian-blue);
 }
 
 /* Main */
