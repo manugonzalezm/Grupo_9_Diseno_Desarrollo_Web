@@ -4,6 +4,7 @@
   --cerulean: #006992;
   --yale-blue: #27476e;
   --prussian-blue: #001d4a;
+  --font-main: 'Segoe UI', tahoma, geneva, verdana, sans-serif;
 }
 
 /* Contenedor de las tarjetas de servicio */
@@ -50,6 +51,7 @@
 
 /* Texto del titulo */
 .service-card .title {
+  font-family: var(--font-main);
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 15px;
@@ -58,6 +60,7 @@
 
 /* Texto de la descripción */
 .service-card .description {
+  font-family: var(--font-main);
   font-size: 0.85rem;
   margin-bottom: 15px;
   text-align: center;
